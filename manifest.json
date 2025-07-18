@@ -1,0 +1,48 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "Enchanced Happy Ghast",
+		"description": "Enchanced Happy Ghast",
+		"uuid": "1e00b42c-456f-497a-8d71-e59404517c8e",
+		"version": [
+			1,
+			0,
+			0
+		],
+		"min_engine_version": [
+			1,
+			18,
+			0
+		]
+	},
+	"modules": [
+		{
+			"description": "Behavior",
+			"version": [
+				1,
+				0,
+				0
+			],
+			"uuid": "f92b8ad0-8083-42e8-8a87-fa56dde6939f",
+			"type": "data"
+		},
+		{
+			"description": "Scripts",
+			"type": "script",
+			"language": "javascript",
+			"entry": "scripts/main.js",
+			"uuid": "f78ad49d-a931-4107-bdad-746f0a87a3f3",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "2.0.0"
+		}
+	]
+}
