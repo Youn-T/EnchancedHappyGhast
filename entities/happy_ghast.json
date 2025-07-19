@@ -38,6 +38,11 @@
           "type": "bool",
           "default": false,
           "client_sync": true
+        },
+        "minecraft:is_flamethrowing": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
         }
       }
     },
@@ -907,6 +912,96 @@
               "use_item": true,
               "play_sounds": "armor.equip_generic",
               "interact_text": "action.interact.equipharness"
+            },
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_sneak_held",
+                      "subject": "other",
+                      "value": false
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "custom:plower"
+                    },
+                    {
+                      "test": "rider_count",
+                      "subject": "self",
+                      "operator": "equals",
+                      "value": 0
+                    }
+                  ]
+                },
+                "event": "to_plower",
+                "target": "self"
+              },
+              "use_item": true,
+              "play_sounds": "armor.equip_generic",
+              "interact_text": "action.interact.equipharness"
+            },
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_sneak_held",
+                      "subject": "other",
+                      "value": false
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "custom:gunner"
+                    },
+                    {
+                      "test": "rider_count",
+                      "subject": "self",
+                      "operator": "equals",
+                      "value": 0
+                    }
+                  ]
+                },
+                "event": "to_gunner",
+                "target": "self"
+              },
+              "use_item": true,
+              "play_sounds": "armor.equip_generic",
+              "interact_text": "action.interact.equipharness"
+            },
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_sneak_held",
+                      "subject": "other",
+                      "value": false
+                    },
+                    {
+                      "test": "has_equipment",
+                      "subject": "other",
+                      "domain": "hand",
+                      "value": "custom:flamethrower"
+                    },
+                    {
+                      "test": "rider_count",
+                      "subject": "self",
+                      "operator": "equals",
+                      "value": 0
+                    }
+                  ]
+                },
+                "event": "to_flamethrower",
+                "target": "self"
+              },
+              "use_item": true,
+              "play_sounds": "armor.equip_generic",
+              "interact_text": "action.interact.equipharness"
             }
           ]
         }
@@ -926,6 +1021,11 @@
       }
     },
     "events": {
+      "to_flamethrower": {
+        "set_property": {
+          "minecraft:ghast_type": "flamethrower"
+        }
+      },
       "to_plower": {
         "set_property": {
           "minecraft:ghast_type": "plower"

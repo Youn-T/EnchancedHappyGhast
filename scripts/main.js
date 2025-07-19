@@ -45,11 +45,13 @@ world.afterEvents.itemUse.subscribe(data => {
         const tnt = player.dimension.spawnEntity("minecraft:tnt", spawnPos);
     }
     if (data.itemStack.typeId == "minecraft:fire_charge") {
+        ghast.setProperty("minecraft:is_flamethrowing", true)
         const fireball = ghast.dimension.spawnEntity("minecraft:fireball", addVector3(ghast.location, multiplyVector3(normalizeVector3(ghast.getViewDirection()), 4)))
 
         fireball.applyImpulse(ghast.getViewDirection())
-
+        player.dimension.playSound("mob.ghast.charge", ghast.location)
         player.runCommand("clear @s fire_charge 1 1")
+        system.runTimeout(() => ghast.setProperty("minecraft:is_flamethrowing", false), 20)
     }
 })
 /**
